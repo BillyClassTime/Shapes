@@ -56,7 +56,7 @@ public class Square : Shape
 }
 ```
 
-The solutions might like something like this:
+The solutions might see something like this:
 
 ![](img/10A.png) 
 
@@ -82,7 +82,7 @@ I create the **Rectangle** class, implementing **Shape** and inheritance of it.
  }
  ```
 
-Adding the above class, the solutions might like something like this:
+Adding the above class, the solutions might see something like this:
 
 ![](img/11A.png)
 

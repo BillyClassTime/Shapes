@@ -13,7 +13,7 @@ namespace Shapes.Tests
     {
         private const double areaExpected = 60.5;
         private const uint cornerExpected = 15;
-        private const int countsExpected = 1210;
+        private const int countsExpected = 1223;
 
         [TestMethod()]
         public void AreaSumTest()
@@ -54,10 +54,10 @@ namespace Shapes.Tests
                 ShapeCount = (int)new Square(5, 4).Count(ShapeMoodValue.Happy) };
             ShameWithMood squareTwo = new() { 
                 Shape = new Square(3, 4), 
-                ShapeCount = (int)new Square(5, 4).Count(ShapeMoodValue.SupperHappy) };
+                ShapeCount = (int)new Square(3, 4).Count(ShapeMoodValue.SupperHappy) };
             ShameWithMood triangleOne = new() { 
                 Shape = new Triangle(5, 9), 
-                ShapeCount = (int)new Triangle(5, 4).Count(ShapeMoodValue.SupperHappy) };
+                ShapeCount = (int)new Triangle(5, 9).Count(ShapeMoodValue.SupperHappy) };
             ShameWithMood rectangleOne = new() { 
                 Shape = new Rectangle(4, 2), 
                 ShapeCount = (int)new Triangle(4, 2).Count(ShapeMoodValue.Happy) };

@@ -13,6 +13,8 @@ namespace Shapes
         public double Area { get => Length * Height; }
         private double Length { get; set; }
         private double Height { get; set; }
+        const ushort FOUR = 4;
+        public ushort Corners => FOUR;
 
         public Square(double length, double height)
         {

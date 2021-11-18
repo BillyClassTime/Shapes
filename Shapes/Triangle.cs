@@ -12,6 +12,8 @@ namespace Shapes
         public double Area { get => 0.5 * Height * Width; }
         private double Width { get; set; }
         private double Height { get; set; }
+        const ushort THREE = 3;
+        public ushort Corners => THREE;
 
         public Triangle(double width, double height)
         {

@@ -6,6 +6,6 @@ namespace Shapes
     {
         abstract public double Area { get; }
 
-        public ushort Corners => throw new NotImplementedException();
+        abstract public ushort Corners {get;}
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    public class Triangle : IShape
+    public class Triangle : Shape
     {
         public double Perimeter { get => Height + Width + (Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(Width, 2))); }
-        public double Area { get => 0.5 * Height * Width; }
+        public override double Area { get => 0.5 * Height * Width; }
         private double Width { get; set; }
         private double Height { get; set; }
         const ushort THREE = 3;
-        public ushort Corners => THREE;
+        public override ushort Corners => THREE;
 
         public Triangle(double width, double height)
         {

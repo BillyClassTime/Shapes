@@ -176,7 +176,6 @@ Testing Areas and Corners
 ```c#
 private const double areaExpected = 60.5;
 private const uint cornerExpected = 15;
-private const int countsExpected = 1196;
 
 [TestMethod()]
 public void AreaSumTest()
@@ -254,8 +253,6 @@ public static class ShapesCount
     {
         const int TRIPLE = 3;
         const int DOUBLE = 2;
-        const ushort TEN_CORNERS = 10;
-        const ushort FIVE_CORNERS = 5;
         double count = default;
         switch (mood)
         {

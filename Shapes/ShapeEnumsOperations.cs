@@ -1,4 +1,4 @@
-﻿public enum ShapeEnumsOperations
+﻿public enum ShapeOperations
 {
     SumAreas = 0,
     SumCorners,

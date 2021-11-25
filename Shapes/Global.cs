@@ -1,2 +1,4 @@
 global using static System.Console;
-using System.IO;
+global using Shapes;
+global using System.IO;
+global using System;

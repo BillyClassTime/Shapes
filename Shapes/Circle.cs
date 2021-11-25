@@ -10,7 +10,7 @@ namespace Shapes
     {
         public double Circumference { get => 2 * 3.14159 * Radius; }
         public override double Area { get => 3.14159 * (Radius * Radius); }
-        private double Radius { get; set; }
+        public double Radius { get; set; }
         const ushort ZERO = 0;
         public override ushort Corners => ZERO;
 
@@ -18,5 +18,6 @@ namespace Shapes
         {
             Radius = radius;
         }
+        public Circle() { }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shapes
+﻿namespace Shapes
 {
     public class Rectangle : Shape
     {
@@ -12,8 +6,8 @@ namespace Shapes
 
         public override double Area { get => Length * Height; }
 
-        private double Length { get; set; }
-        private double Height { get; set; }
+        public double Length { get; set; }
+        public double Height { get; set; }
         const ushort FOUR = 4;
         public override ushort Corners => FOUR;
 
@@ -23,7 +17,7 @@ namespace Shapes
             Height = height;
             Length = length;
         }
-
+        public Rectangle() { }
     }
 }
 

@@ -4,7 +4,7 @@ public class ListShapesGetter
 {
     public FileShapesSource ShapesSource { get; set; } = new FileShapesSource();
     public JsonSerializerShapes SerializerShapes { get; set; } = new JsonSerializerShapes();
-    private List<Shape> Shapes;
+    public List<Shape> Shapes = new List<Shape>();
     public List<Shape> GetListOfShapes()
     {
         // recuparar las figuras de un Json, BD o INI

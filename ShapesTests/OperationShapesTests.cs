@@ -11,15 +11,15 @@ namespace Shapes.Tests
     [TestClass()]
     public class OperationShapesTests
     {
-        private const double areaExpected = 60.5;
+        private const double areaExpected = 62.5;
         private const uint cornerExpected = 15;
         private const int countsExpected = 1223;
 
         [TestMethod()]
         public void AreaSumTest()
         {
-            IShape squareOne = new Square(5, 4);
-            IShape squareTwo = new Square(3, 4);
+            IShape squareOne = new Square(5, 5);
+            IShape squareTwo = new Square(3, 3);
             IShape triangleOne = new Triangle(5, 9);
             //IShape circle = new Circle(3);
             IShape rectangleOne = new Rectangle(3, 2);
@@ -33,8 +33,8 @@ namespace Shapes.Tests
         [TestMethod]
         public void CornersSumTest()
         {
-            IShape squareOne = new Square(5, 4);
-            IShape squareTwo = new Square(3, 4);
+            IShape squareOne = new Square(5, 5);
+            IShape squareTwo = new Square(3, 3);
             IShape triangleOne = new Triangle(5, 9);
             //IShape circle = new Circle(3);
             IShape rectangleOne = new Rectangle(3, 2);
@@ -51,16 +51,16 @@ namespace Shapes.Tests
         {
             ShameWithMood squareOne = new() { 
                 Shape = new Square(5, 4), 
-                ShapeCount = (int)new Square(5, 4).Count(ShapeMoodValue.Happy) };
+                ShapeCount = (int)new Square(5,5).Count(ShapeMoodValue.Happy) };
             ShameWithMood squareTwo = new() { 
                 Shape = new Square(3, 4), 
-                ShapeCount = (int)new Square(3, 4).Count(ShapeMoodValue.SupperHappy) };
+                ShapeCount = (int)new Square(3,5).Count(ShapeMoodValue.SupperHappy) };
             ShameWithMood triangleOne = new() { 
                 Shape = new Triangle(5, 9), 
                 ShapeCount = (int)new Triangle(5, 9).Count(ShapeMoodValue.SupperHappy) };
             ShameWithMood rectangleOne = new() { 
-                Shape = new Rectangle(4, 2), 
-                ShapeCount = (int)new Triangle(4, 2).Count(ShapeMoodValue.Happy) };
+                Shape = new Rectangle(3, 2), 
+                ShapeCount = (int)new Rectangle(3, 2).Count(ShapeMoodValue.Happy) };
             ShameWithMood circle = new() { 
                 Shape = new Circle(3), 
                 ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Normal) };

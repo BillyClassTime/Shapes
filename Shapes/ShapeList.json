@@ -19,8 +19,8 @@
     },
     {
       "TypeDiscriminator": 4,
-      "Width": 2,
-      "Height": 3,
+      "Width": 5,
+      "Height": 9,
       "Name": "TextJson.Triangle"
     }
   ]

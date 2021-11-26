@@ -72,5 +72,7 @@ Happy circle: It counts count 5 corners.
 
 ![](img/07.png)
 
+## Evolution with SOLID solution [SOLID](./AnswersSolid.md)
+
 ## [Answers](./Answers.md)
 

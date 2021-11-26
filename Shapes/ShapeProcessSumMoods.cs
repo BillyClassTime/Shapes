@@ -16,12 +16,11 @@ public class ShapeProcessSumMoods : ShapeProcess
         _engine.ResultOperation = 0;
         if (shapes == null)
             _logger.Looger("Lista de Shapes en blanco");
-        double sumations = 0;
         if (shapes.Count > 0)
         {
             var sum = shapes.Sum(shapeS => shapeS.Count(Mood));
 
-            _engine.ResultOperation = sumations;
+            _engine.ResultOperation = sum;
         }
     }
 }

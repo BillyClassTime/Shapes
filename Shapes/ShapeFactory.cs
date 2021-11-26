@@ -2,16 +2,19 @@
 {
     public ShapeProcess CreateOperations(ShapeOperations operation, ShapesEngine engine)
     {
-        switch (operation)
+        try
         {
-            case ShapeOperations.SumAreas:
-                return new ShapeProcessSumAreas(engine, engine.Logger); 
-            case ShapeOperations.SumCorners:
-                return new ShapeProcessSumCorners(engine, engine.Logger);
-            case ShapeOperations.SumMoods:
-                var shapeOperation = new ShapeProcessSumMoods(engine, engine.Logger,ShapeMoodValue.Happy);
-                return shapeOperation;
+            string typeName = $"ShapeProcess{operation}";
+            if (!typeName.Contains("Moods"))
+                return (ShapeProcess)Activator.CreateInstance(
+                    Type.GetType(typeName),
+                    new object[] { engine, engine.Logger });
+            else
+                return new ShapeProcessSumMoods(engine, engine.Logger, ShapeMoodValue.Happy);
         }
-        return null;
+        catch
+        {
+            return null;
+        }
     }
 }

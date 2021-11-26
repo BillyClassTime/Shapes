@@ -19,10 +19,13 @@ namespace Shapes.Tests
         public void AreaSumTest()
         {
             IShape squareOne = new Square(5, 5);
-            IShape squareTwo = new Square(3, 3);
             IShape triangleOne = new Triangle(5, 9);
             //IShape circle = new Circle(3);
             IShape rectangleOne = new Rectangle(3, 2);
+
+            IShape squareTwo = new Square();
+            ((Square)squareTwo).Length = 3;
+            ((Square)squareTwo).Height = 3;
 
             List<IShape> listOfShapes = new() { squareOne, squareTwo, triangleOne, rectangleOne };
 

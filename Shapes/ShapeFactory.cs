@@ -14,7 +14,7 @@
         }
         catch
         {
-            return null;
+            return new UnknownShapeProcess(engine, engine.Logger);
         }
     }
 }

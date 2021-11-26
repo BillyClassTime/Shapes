@@ -17,7 +17,7 @@ public partial class ShapesEngine
         var shapeFactory = new ShapeFactory();
         // Operar
         var ResultShapesOperations = shapeFactory.CreateOperations(operation, this);
-        ResultShapesOperations?.Operate();
+        ResultShapesOperations.Operate();
         // Registrar el resultado
         Logger.Looger($"El resultado de {operation} es {ResultOperation}");
     }

@@ -1,7 +1,7 @@
 # Aplicando SOLID al proyecto de Shapes
 
 Aplicado Single Responsability Principle y Open Close Principle
-Falta -> LSP, ISP y DIP.
+Falta -> ISP y DIP.
 
 ## Aplicando SOLID
 
@@ -84,3 +84,56 @@ public class ShapeFactory
 ```
 Se pasa lo que a los otros métodos añadiendo el estado de animo a proponer a las formas.
 
+## LSP con el patron de objeto null
+
+Hemos intentando no violar el LSP, siguiendo las recomendaciones de DIGA en cambio de PREGUNTE, aunque el cambio del processo de sumas según el estado de animo de formas ha impactado en nuestro código. Hemos incluido el siguiente codigo para continuar aplicando SOLID a nuestro proyecto:
+
+```c#
+public class ShapeFactory
+{
+    public ShapeProcess CreateOperations(ShapeOperations operation, ShapesEngine engine)
+    {
+        try
+        {
+            string typeName = $"ShapeProcess{operation}";
+            if (!typeName.Contains("Moods"))
+                return (ShapeProcess)Activator.CreateInstance(
+                    Type.GetType(typeName),
+                    new object[] { engine, engine.Logger });
+            else
+                return new ShapeProcessSumMoods(engine, engine.Logger, ShapeMoodValue.Happy);
+        }
+        catch
+        {
+            return new UnknownShapeProcess(engine, engine.Logger);
+        }
+    }
+}
+```
+La clase ShapeEngine, ahora llamará al metodo CreateOperations de la clase fabrica de formas sin importar que devuelva un null o no.
+```c#
+public partial class ShapesEngine
+{
+    public ShapesEngine() {}
+    public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
+
+    public ListShapesGetter ListShapes { get; set; } = new ListShapesGetter();
+    public double ResultOperation { get; set; }
+
+    public void Start(ShapeOperations operation)
+    {
+        Logger.Looger("Inicio de operaciones con las formas geométricas");
+        Logger.Looger("Cargar las figuras a una lista");
+
+        var listShapes = ListShapes?.GetListOfShapes(); 
+
+        var shapeFactory = new ShapeFactory();
+
+        var ResultShapesOperations = shapeFactory.CreateOperations(operation, this);
+        ResultShapesOperations.Operate();
+
+        Logger.Looger($"El resultado de {operation} es {ResultOperation}");
+        Logger.Looger("Operacion completada");
+    }
+}
+```

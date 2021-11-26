@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public partial class ShapesEngine
+﻿public partial class ShapesEngine
 {
     public ShapesEngine() {}
     public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
@@ -11,14 +9,16 @@ public partial class ShapesEngine
     public void Start(ShapeOperations operation)
     {
         Logger.Looger("Inicio de operaciones con las formas geométricas");
-        // Cargar las figuras a una lista
-        var listShapes = ListShapes?.GetListOfShapes(); // Si no hay formas no debería seguir adelante
-        // Instanciar la Fábrica de operaciones con formas
+        Logger.Looger("Cargar las figuras a una lista");
+
+        var listShapes = ListShapes?.GetListOfShapes(); 
+
         var shapeFactory = new ShapeFactory();
-        // Operar
+
         var ResultShapesOperations = shapeFactory.CreateOperations(operation, this);
         ResultShapesOperations.Operate();
-        // Registrar el resultado
+
         Logger.Looger($"El resultado de {operation} es {ResultOperation}");
+        Logger.Looger("Operacion completada");
     }
 }

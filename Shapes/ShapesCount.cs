@@ -8,7 +8,7 @@ namespace Shapes
 {
     public static class ShapesCount
     {
-        public static double Count(this IShape shape, ShapeMoodValue mood)
+        public static double Count(this Shape shape, ShapeMoodValue mood)
         {
             const int TRIPLE = 3;
             const int DOUBLE = 2;

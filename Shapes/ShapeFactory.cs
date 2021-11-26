@@ -8,10 +8,10 @@
                 return new ShapeProcessSumAreas(engine, engine.Logger); 
             case ShapeOperations.SumCorners:
                 return new ShapeProcessSumCorners(engine, engine.Logger);
-            /*case ShapeOperations.SumMoods:
-                return new ShapeProcessSumMoods(engine, engine.Logger);*/ //ESTE CAMBIO ESTA COMPLICADO
+            case ShapeOperations.SumMoods:
+                var shapeOperation = new ShapeProcessSumMoods(engine, engine.Logger,ShapeMoodValue.Happy);
+                return shapeOperation;
         }
         return null;
     }
-
 }

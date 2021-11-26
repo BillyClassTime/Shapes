@@ -12,18 +12,15 @@ public class ShapeProcessSumMoods : ShapeProcess
     public override void Operate()
     {
         _logger.Looger("Process sum moods of shapes");
-        if (_engine.ListShapes.Shapes == null)
-        {
+        var shapes = _engine.ListShapes.Shapes;
+        _engine.ResultOperation = 0;
+        if (shapes == null)
             _logger.Looger("Lista de Shapes en blanco");
-            _engine.ResultOperation = 0;
-        }
         double sumations = 0;
-        if (_engine.ListShapes.Shapes.Count > 0)
+        if (shapes.Count > 0)
         {
-            foreach (var shape in _engine.ListShapes.Shapes)
-            {
-                sumations += (shape).Count(Mood);
-            }
+            var sum = shapes.Sum(shapeS => shapeS.Count(Mood));
+
             _engine.ResultOperation = sumations;
         }
     }

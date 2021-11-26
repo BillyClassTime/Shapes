@@ -52,17 +52,14 @@ public class ShapeProcessSumMoods : ShapeProcess
         double sumations = 0;
         if (_engine.ListShapes.Shapes.Count > 0)
         {
-            foreach (var shape in _engine.ListShapes.Shapes)
-            {
-                sumations += (shape).Count(Mood);
-            }
-            _engine.ResultOperation = sumations;
+	    var sum = shapes.Sum(shapeS => shapeS.Count(Mood));
+            _engine.ResultOperation = sum;
         }
     }
 }
 ```
 Como podemos ver se ha extendido el constructor para que acepte el estado de animo de ls formas
-y por otro lado la sumatoria de las formas se pasa a la lista recorriendola de arriba a abajo.
+y por otro lado la sumatoria es el resultdo de llamar a la construcción LINQ con Sum(shapeS => shapeS.Count(Mood)
 Esto logra extender el proyecto para que acepte esta funcionalidad sin tocar nada de lo anterirmente realizado.
 
 En la clase de factoria de formas se ha modificado el método así:

@@ -86,3 +86,4 @@ public class ShapeFactory
 }
 ```
 Se pasa lo que a los otros métodos añadiendo el estado de animo a proponer a las formas.
+

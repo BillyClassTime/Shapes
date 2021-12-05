@@ -1,4 +1,4 @@
-﻿public class ConsoleLogger
+﻿public class ConsoleLogger : ILogger
 {
     public void Looger(string messageToLog)
     {

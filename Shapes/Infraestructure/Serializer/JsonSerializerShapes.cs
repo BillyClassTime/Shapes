@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-public class JsonSerializerShapes
+public class JsonSerializerShapes : IShapeSerializer
 {
     public Shape GetShapesFromJsonString(string shapesJson)
     {
@@ -18,7 +18,7 @@ public class JsonSerializerShapes
         return JsonSerializer.Serialize(shape, serializeOptions);
     }
 
-    private JsonArray ShapeArray (string shapesList)
+    private JsonArray ShapeArray(string shapesList)
     {
         JsonNode shapeNode = JsonNode.Parse(shapesList);
 

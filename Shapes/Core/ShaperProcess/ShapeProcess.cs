@@ -1,12 +1,10 @@
 ﻿public abstract class ShapeProcess
 {
-    internal readonly ShapesEngine _engine;
-    internal ConsoleLogger _logger;
+    public ILogger _logger { get; set; }
 
-    internal ShapeProcess(ShapesEngine engine, ConsoleLogger logger)
+    internal ShapeProcess(ILogger logger)
     {
-        _engine = engine;
         _logger = logger;
     }
-    public virtual void Operate() { }
+    public abstract double Operate(List<Shape> shapeList);
 }

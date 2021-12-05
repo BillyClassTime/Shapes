@@ -1,6 +1,14 @@
 ﻿public class ShapeFactory
 {
-    public ShapeProcess CreateOperations(ShapeOperations operation, ShapesEngine engine)
+    public ILogger Logger { get; }
+
+    public ShapeFactory(ILogger logger)
+    {
+        Logger = logger;
+    }
+
+
+    public ShapeProcess CreateOperations(ShapeOperations operation, List<Shape> shapesList)
     {
         try
         {
@@ -8,13 +16,13 @@
             if (!typeName.Contains("Moods"))
                 return (ShapeProcess)Activator.CreateInstance(
                     Type.GetType(typeName),
-                    new object[] { engine, engine.Logger });
+                    new object[] { Logger });
             else
-                return new ShapeProcessSumMoods(engine, engine.Logger, ShapeMoodValue.Happy);
+                return new ShapeProcessSumMoods(Logger, ShapeMoodValue.Happy);
         }
         catch
         {
-            return new UnknownShapeProcess(engine, engine.Logger);
+            return new UnknownShapeProcess(Logger);
         }
     }
 }

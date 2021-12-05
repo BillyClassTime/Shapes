@@ -1,9 +1,10 @@
 ﻿public class UnknownShapeProcess : ShapeProcess
 {
-    public UnknownShapeProcess(ShapesEngine engine, ConsoleLogger logger) : base(engine, logger) { }
+    public UnknownShapeProcess(ILogger logger) : base(logger) { }
 
-    public override void Operate()
+    public override double Operate(List<Shape> shapes)
     {
-        _logger.Looger("Unknown Shape Process"); 
+        _logger.Looger("Unknown Shape Process");
+        return 0;
     }
 }

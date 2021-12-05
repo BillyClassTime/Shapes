@@ -1,24 +1,22 @@
-﻿using System.Linq;
-
-public class ShapeProcessSumAreas : ShapeProcess
+﻿public class ShapeProcessSumAreas : ShapeProcess
 {
-    public ShapeProcessSumAreas(ShapesEngine engine, ConsoleLogger logger) : base
-    (engine, logger)
+    public ShapeProcessSumAreas(ILogger logger) : base(logger)
     { }
 
-    public override void Operate()
+    public override double Operate(List<Shape> shapes)
     {
         _logger.Looger("Process sum areas of shapes");
-        if (_engine.ListShapes.Shapes == null)
+        if (shapes == null)
         {
             _logger.Looger("Lista de Shapes en blanco");
-            _engine.ResultOperation = 0;
+            return 0;
         }
 
-        if (_engine.ListShapes.Shapes.Count > 0)
+        if (shapes.Count > 0)
         {
-            var sumations = _engine.ListShapes.Shapes.Sum(shapes => shapes.Area);
-            _engine.ResultOperation = sumations;
+            var sumations = shapes.Sum(shapes => shapes.Area);
+            return sumations;
         }
+        return 0;
     }
 }

@@ -1,4 +1,4 @@
 ﻿public interface IShapeSource
 {
-    string GetShapesFromSource(string fileName);
+    string GetShapesFromSource();
 }

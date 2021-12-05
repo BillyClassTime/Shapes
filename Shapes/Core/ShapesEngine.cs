@@ -1,24 +1,36 @@
 ﻿public partial class ShapesEngine
 {
-    public ShapesEngine() {}
-    public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
+    private readonly ILogger logger;
+    private readonly IShapeSource shapeSource;
+    private readonly ListShapesGetter listShapesGetter;
+    private readonly ShapeFactory shapeFactory;
 
-    public ListShapesGetter ListShapes { get; set; } = new ListShapesGetter();
     public double ResultOperation { get; set; }
+
+    public ShapesEngine(ILogger logger, 
+                        IShapeSource shapeSource, 
+                        ListShapesGetter listShapesGetter,
+                        ShapeFactory shapeFactory)
+    {
+        this.logger = logger;
+        this.shapeSource = shapeSource;
+        this.listShapesGetter = listShapesGetter;
+        this.shapeFactory = shapeFactory;
+    }
 
     public void Start(ShapeOperations operation)
     {
-        Logger.Looger("Inicio de operaciones con las formas geométricas");
-        Logger.Looger("Cargar las figuras a una lista");
+        logger.Looger("Inicio de operaciones con las formas geométricas");
+        logger.Looger("Cargar las figuras a una lista");
 
-        var listShapes = ListShapes?.GetListOfShapes(); 
+        string shapeString = shapeSource.GetShapesFromSource();
 
-        var shapeFactory = new ShapeFactory();
+        var shapesList = listShapesGetter.GetListOfShapes(shapeString); 
 
-        var ResultShapesOperations = shapeFactory.CreateOperations(operation, this);
-        ResultShapesOperations.Operate();
+        var ResultShapesOperations = shapeFactory.CreateOperations(operation, shapesList);
+        ResultOperation = ResultShapesOperations.Operate(shapesList);
 
-        Logger.Looger($"El resultado de {operation} es {ResultOperation}");
-        Logger.Looger("Operacion completada");
+        logger.Looger($"El resultado de {operation} es {ResultOperation}");
+        logger.Looger("Operacion completada");
     }
 }

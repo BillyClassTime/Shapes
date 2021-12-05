@@ -16,7 +16,8 @@ namespace Tests
         public void GetListOfShapesTest()
         {
             //TODO
-            var listShapesGetter = new ListShapesGetter();
+            var serializerShapes = new JsonSerializerShapes();
+            var listShapesGetter = new ListShapesGetter(serializerShapes);
             Assert.IsTrue(true,"TODO ListOfShapesTest");
         }
     }

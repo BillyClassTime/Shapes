@@ -1,7 +1,6 @@
 # Aplicando SOLID al proyecto de Shapes
 
-Aplicado Single Responsability Principle y Open Close Principle
-Falta -> ISP y DIP.
+Aplicando Single Responsibility Principle y Open Close Principle, Interface Segregation Principle and Dependency Inversion Principle.
 
 ## Aplicando SOLID
 
@@ -9,7 +8,7 @@ Contar Areas
 
 Contar Esquinas
 
-Contar EstadosDeAnimoDelasFormas // Bit complicate!!
+Contar EstadosDeAnimoDelasFormas 
 
 Motor de las formas (ShapeEngine)
 Tendrá:
@@ -26,7 +25,7 @@ El motor de formas debe llamar a la factoría para
  2 - Contar Esquinas
  3 - Contar los estados de animo
 
-El último proceso el 3 debera pernsarse con mas cuidado.
+El último proceso será la excepción a la regla de la factoría, una vez que en este escenario esta realizado después de que todo y no se quiere alterar las figuras (shapes), si no extenderlas.
 
 Lo he resuelto con la clase Operacion de estados de animo de formas:
 ShapeProcessSumMoods:
@@ -58,7 +57,7 @@ public class ShapeProcessSumMoods : ShapeProcess
     }
 }
 ```
-Como podemos ver se ha extendido el constructor para que acepte el estado de animo de ls formas
+Como podemos ver se ha extendido el constructor para que acepte el estado de animo de las formas
 y por otro lado la sumatoria es el resultdo de llamar a la construcción LINQ con Sum(shapeS => shapeS.Count(Mood)
 Esto logra extender el proyecto para que acepte esta funcionalidad sin tocar nada de lo anterirmente realizado.
 
@@ -137,3 +136,23 @@ public partial class ShapesEngine
     }
 }
 ```
+
+TODO (Descripción y detalle de lo añadido, resumen del GIT)
+
+Implementación de las interfaces (Para cumplir con ISP)
+
+Implementación de la Inyección de dependencias (Para cumplir con DIP) 
+
+ISP: 
+
+Añadimos ILogger, IShape, IShapeConfigBuilder, IShapeSerializer y IShapeSource
+
+
+
+DIP:
+
+Quitamos en ShapeEngine las dependicas de Logger, ListShapeGetter y ShapeFactory.
+
+Los incluimos en el constructor para poder pasar Cualquier Logger, ListShapeGetter y ShapeFactory, (Ya no dependemos de ellos al menos no de manera fija), Al tener esta inversión de la dependencia, podremos cambiar dependencias que puedan cambiar el comportamiento de forma dinámica, muy apropiado para las pruebas.
+
+TODO mas pruebas unitarias

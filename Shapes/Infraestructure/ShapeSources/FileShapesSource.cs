@@ -1,4 +1,10 @@
 ﻿public class FileShapesSource : IShapeSource
 {
-    public string GetShapesFromSource(string fileName) => File.ReadAllText(fileName);
+    private readonly IShapeConfigBuilder ShapeConfig;
+
+    public FileShapesSource(IShapeConfigBuilder shapeConfigBuilder)
+    {
+        this.ShapeConfig = shapeConfigBuilder;
+    }
+    public string GetShapesFromSource() => File.ReadAllText(ShapeConfig.ShapeListFile);
 }

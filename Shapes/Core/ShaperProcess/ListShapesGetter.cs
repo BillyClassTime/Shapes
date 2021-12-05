@@ -2,18 +2,22 @@
 
 public class ListShapesGetter
 {
-    public FileShapesSource ShapesSource { get; set; } = new FileShapesSource();
-    public JsonSerializerShapes SerializerShapes { get; set; } = new JsonSerializerShapes();
-    public List<Shape> Shapes = new List<Shape>();
-    public List<Shape> GetListOfShapes()
-    {
-        // recuparar las figuras de un Json, BD o INI
-        var stringShapes = ShapesSource.GetShapesFromSource("ShapeList.json");
+    private readonly IShapeSerializer shapeSerializer;
 
-        foreach (var stringShape in SerializerShapes.ShapeListString(stringShapes))
+    public ListShapesGetter(IShapeSerializer shapeSerializer)
+    {
+        this.shapeSerializer = shapeSerializer;
+    }
+    
+    private List<Shape> Shapes = new List<Shape>();
+
+    public List<Shape> GetListOfShapes(string shapeStrings)
+    {
+
+        foreach (var shapeString in shapeSerializer.ShapeListString(shapeStrings))
         {
             // Cargar las figuras a un string
-            var shape = SerializerShapes.GetShapesFromJsonString(stringShape);
+            var shape = shapeSerializer.GetShapesFromJsonString(shapeString);
             Shapes.Add(shape);
         }
 

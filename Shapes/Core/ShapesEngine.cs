@@ -7,8 +7,8 @@
 
     public double ResultOperation { get; set; }
 
-    public ShapesEngine(ILogger logger, 
-                        IShapeSource shapeSource, 
+    public ShapesEngine(ILogger logger,
+                        IShapeSource shapeSource,
                         ListShapesGetter listShapesGetter,
                         ShapeFactory shapeFactory)
     {
@@ -25,9 +25,9 @@
 
         string shapeString = shapeSource.GetShapesFromSource();
 
-        var shapesList = listShapesGetter.GetListOfShapes(shapeString); 
+        var shapesList = listShapesGetter.GetListOfShapes(shapeString);
 
-        var ResultShapesOperations = shapeFactory.CreateOperations(operation, shapesList);
+        var ResultShapesOperations = shapeFactory.CreateOperations(operation);
         ResultOperation = ResultShapesOperations.Operate(shapesList);
 
         logger.Looger($"El resultado de {operation} es {ResultOperation}");

@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
 public class JsonSerializerShapes : IShapeSerializer
 {
     public Shape GetShapesFromJsonString(string shapesJson)
@@ -28,7 +26,7 @@ public class JsonSerializerShapes : IShapeSerializer
 
     public IEnumerable<string> ShapeListString(string fileShapeList)
     {
-        JsonArray shapeArray = this.ShapeArray(fileShapeList);
+        JsonArray shapeArray = ShapeArray(fileShapeList);
         foreach (JsonNode shapeNode in shapeArray)
         {
             yield return shapeNode.ToString();

@@ -1,4 +1,4 @@
-﻿public class ShapeConfig 
+﻿public class ShapeConfig
 {
     public string ShapeListFile { get; set; } = "";
 }

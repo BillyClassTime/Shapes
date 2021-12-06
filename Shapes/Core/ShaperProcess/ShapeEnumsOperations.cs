@@ -2,5 +2,7 @@
 {
     SumAreas = 0,
     SumCorners,
-    SumMoods
+    SumMoodsNormal,
+    SumMoodsHappy,
+    SumMoodsSuperHappy
 }

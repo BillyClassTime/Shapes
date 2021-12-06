@@ -1,9 +1,6 @@
-﻿namespace Shapes
+﻿public enum ShapeMoodValue
 {
-    public enum ShapeMoodValue
-    {
-        Normal = 0,
-        Happy,
-        SupperHappy
-    }
+    Normal = 0,
+    Happy,
+    SuperHappy
 }

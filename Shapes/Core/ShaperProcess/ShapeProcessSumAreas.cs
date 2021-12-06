@@ -5,10 +5,10 @@
 
     public override double Operate(List<Shape> shapes)
     {
-        _logger.Looger("Process sum areas of shapes");
+        Logger.Looger("Process sum areas of shapes");
         if (shapes == null)
         {
-            _logger.Looger("Lista de Shapes en blanco");
+            Logger.Looger("Lista de Shapes en blanco");
             return 0;
         }
 

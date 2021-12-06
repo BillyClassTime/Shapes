@@ -7,18 +7,15 @@
         Logger = logger;
     }
 
-
-    public ShapeProcess CreateOperations(ShapeOperations operation, List<Shape> shapesList)
+    public ShapeProcess CreateOperations(ShapeOperations operation)
     {
         try
         {
             string typeName = $"ShapeProcess{operation}";
-            if (!typeName.Contains("Moods"))
-                return (ShapeProcess)Activator.CreateInstance(
-                    Type.GetType(typeName),
-                    new object[] { Logger });
-            else
-                return new ShapeProcessSumMoods(Logger, ShapeMoodValue.Happy);
+            //if (!typeName.Contains("Moods"))
+            return (ShapeProcess)Activator.CreateInstance(
+                Type.GetType(typeName),
+                new object[] { Logger });
         }
         catch
         {

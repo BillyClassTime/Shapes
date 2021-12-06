@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public class ListShapesGetter
+﻿public class ListShapesGetter
 {
     private readonly IShapeSerializer shapeSerializer;
 
@@ -8,7 +6,7 @@ public class ListShapesGetter
     {
         this.shapeSerializer = shapeSerializer;
     }
-    
+
     private List<Shape> Shapes = new List<Shape>();
 
     public List<Shape> GetListOfShapes(string shapeStrings)

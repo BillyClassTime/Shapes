@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shapes;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shapes.Tests
 {
@@ -52,24 +48,32 @@ namespace Shapes.Tests
         [TestMethod]
         public void MoodTest()
         {
-            ShameWithMood squareOne = new() { 
-                Shape = new Square(2, 2), 
-                ShapeCount = (int)new Square(2,2).Count(ShapeMoodValue.Happy) };
+            ShameWithMood squareOne = new()
+            {
+                Shape = new Square(2, 2),
+                ShapeCount = (int)new Square(2, 2).Count(ShapeMoodValue.Happy)
+            };
             //ShameWithMood squareTwo = new() { 
             //    Shape = new Square(3, 3), 
             //    ShapeCount = (int)new Square(3,3).Count(ShapeMoodValue.SupperHappy) };
-            ShameWithMood triangleOne = new() { 
-                Shape = new Triangle(5, 9), 
-                ShapeCount = (int)new Triangle(5, 9).Count(ShapeMoodValue.Happy) };
-            ShameWithMood rectangleOne = new() { 
-                Shape = new Rectangle(3, 4), 
-                ShapeCount = (int)new Rectangle(3, 4).Count(ShapeMoodValue.Happy) };
+            ShameWithMood triangleOne = new()
+            {
+                Shape = new Triangle(5, 9),
+                ShapeCount = (int)new Triangle(5, 9).Count(ShapeMoodValue.Happy)
+            };
+            ShameWithMood rectangleOne = new()
+            {
+                Shape = new Rectangle(3, 4),
+                ShapeCount = (int)new Rectangle(3, 4).Count(ShapeMoodValue.Happy)
+            };
             //ShameWithMood circle = new() { 
             //    Shape = new Circle(3), 
             //    ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Normal) };
-            ShameWithMood circleHappy = new() { 
-                Shape = new Circle(3), 
-                ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Happy) };
+            ShameWithMood circleHappy = new()
+            {
+                Shape = new Circle(3),
+                ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Happy)
+            };
             //ShameWithMood circleSupperHappy = new() { 
             //    Shape = new Circle(7), 
             //    ShapeCount = (int)new Circle(7).Count(ShapeMoodValue.SupperHappy) };

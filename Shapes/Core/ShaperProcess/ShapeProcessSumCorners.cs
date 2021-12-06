@@ -1,14 +1,13 @@
 ﻿public class ShapeProcessSumCorners : ShapeProcess
 {
-    public ShapeProcessSumCorners(ILogger logger) : base(logger)
-    { }
+    public ShapeProcessSumCorners(ILogger logger) : base(logger) { }
 
     public override double Operate(List<Shape> shapes)
     {
-        _logger.Looger("Process sum of corners' shapes");
+        Logger.Looger("Process sum of corners' shapes");
         if (shapes == null)
         {
-            _logger.Looger("Lista de Shapes en blanco");
+            Logger.Looger("Lista de Shapes en blanco");
             return 0;
         }
 

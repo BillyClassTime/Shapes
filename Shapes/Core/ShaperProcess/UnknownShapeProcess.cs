@@ -4,7 +4,7 @@
 
     public override double Operate(List<Shape> shapes)
     {
-        _logger.Looger("Unknown Shape Process");
+        Logger.Looger("Unknown Shape Process");
         return 0;
     }
 }

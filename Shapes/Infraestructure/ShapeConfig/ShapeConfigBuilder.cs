@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 public class ShapeConfigBuilder : IShapeConfigBuilder
 {
-    public string ShapeListFile { get ; set ; }
+    public string ShapeListFile { get; set; }
 
     public ShapeConfigBuilder()
     {

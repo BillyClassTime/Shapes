@@ -1,10 +1,10 @@
 ﻿public abstract class ShapeProcess
 {
-    public ILogger _logger { get; set; }
+    public ILogger Logger { get; set; }
 
     internal ShapeProcess(ILogger logger)
     {
-        _logger = logger;
+        Logger = logger;
     }
     public abstract double Operate(List<Shape> shapeList);
 }

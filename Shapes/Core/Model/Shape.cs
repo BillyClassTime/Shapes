@@ -1,5 +1,4 @@
-﻿namespace Shapes;
-public abstract class Shape : IShape
+﻿public abstract class Shape : IShape
 {
     abstract public double Area { get; }
 
@@ -8,6 +7,6 @@ public abstract class Shape : IShape
 
     public Shape()
     {
-        this.Name = this.GetType().ToString();
+        Name = GetType().ToString();
     }
 }

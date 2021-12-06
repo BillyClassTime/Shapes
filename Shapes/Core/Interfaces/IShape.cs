@@ -1,10 +1,5 @@
-﻿using System;
-
-namespace Shapes
+﻿public interface IShape
 {
-    public interface IShape
-    {
-        double Area { get; }
-        ushort Corners { get; }
-    }
+    double Area { get; }
+    ushort Corners { get; }
 }

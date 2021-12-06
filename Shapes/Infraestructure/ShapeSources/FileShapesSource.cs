@@ -4,7 +4,7 @@
 
     public FileShapesSource(IShapeConfigBuilder shapeConfigBuilder)
     {
-        this.ShapeConfig = shapeConfigBuilder;
+        ShapeConfig = shapeConfigBuilder;
     }
     public string GetShapesFromSource() => File.ReadAllText(ShapeConfig.ShapeListFile);
 }

@@ -26,5 +26,6 @@ engine = new ShapesEngine(
                     new ListShapesGetter(new JsonSerializerShapes()),
                     new ShapeFactory(logger)
     );
-engine.Start(ShapeOperations.SumMoods);
-WriteLine($"The results are: Operation:{ShapeOperations.SumMoods} - Results:{engine.ResultOperation}");
+
+engine.Start(ShapeOperations.SumMoodsHappy);
+WriteLine($"The results are: Operation:{ShapeOperations.SumMoodsHappy} - Results:{engine.ResultOperation}");

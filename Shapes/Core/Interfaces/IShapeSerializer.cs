@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public interface IShapeSerializer
+﻿public interface IShapeSerializer
 {
     Shape GetShapesFromJsonString(string shapesJson);
     string SetShapeFromStringJson(Shape shape);

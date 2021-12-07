@@ -3,7 +3,7 @@ namespace ShapesXTest;
 public class ShapeProcessSumAreasTest
 {
     [Fact]
-    public void ShapesToSumAreasOfEmptyList()
+    public void ShapesToSumAreasOfNullList()
     {
         List<Shape>? listShapes = null;
         var logger = new FakeLogger();
@@ -13,7 +13,7 @@ public class ShapeProcessSumAreasTest
         Assert.Equal("Lista de Shapes en blanco", logger.LoggerMessage.Last());
     }
     [Fact]
-    public void ShapesToSumAreasOfListToZero()
+    public void ShapesToSumAreasOfEmpyList()
     {
         var expectedSum = 0D;
         var listShapes = new List<Shape>();

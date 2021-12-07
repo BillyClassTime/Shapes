@@ -5,7 +5,7 @@ var logger = new ConsoleLogger();
 var engine = new ShapesEngine(
                     logger,
                     new FileShapesSource(new ShapeConfigBuilder()),
-                    new ListShapesGetter(new JsonSerializerShapes()),
+                    new ConvertStringToShape(new JsonShapesSerializer()),
                     new ShapeFactory(logger)
     );
 engine.Start(ShapeOperations.SumAreas);
@@ -14,7 +14,7 @@ WriteLine($"The results are: Operation:{ShapeOperations.SumAreas} - Results:{eng
 engine = new ShapesEngine(
                     logger,
                     new FileShapesSource(new ShapeConfigBuilder()),
-                    new ListShapesGetter(new JsonSerializerShapes()),
+                    new ConvertStringToShape(new JsonShapesSerializer()),
                     new ShapeFactory(logger)
     );
 engine.Start(ShapeOperations.SumCorners);
@@ -23,7 +23,7 @@ WriteLine($"The results are: Operation:{ShapeOperations.SumCorners} - Results:{e
 engine = new ShapesEngine(
                     logger,
                     new FileShapesSource(new ShapeConfigBuilder()),
-                    new ListShapesGetter(new JsonSerializerShapes()),
+                    new ConvertStringToShape(new JsonShapesSerializer()),
                     new ShapeFactory(logger)
     );
 

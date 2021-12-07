@@ -26,7 +26,7 @@ public class ShapeProcessSumMoodsSuperHappyTest
     [Fact]
     public void SumMoodsOfCirclesSuperHappy()
     {
-        var expectedSum = 66.54862D;
+        var expectedSum = 114.82293D;
         List<Shape> listShape = new List<Shape> { new Circle(3) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
@@ -37,7 +37,7 @@ public class ShapeProcessSumMoodsSuperHappyTest
     [Fact]
     public void SumCornersOfSquareSuperHappy()
     {
-        var expectedSum = 16D;
+        var expectedSum = 24D;
         List<Shape> listShape = new List<Shape> { new Square(2, 2) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
@@ -48,7 +48,7 @@ public class ShapeProcessSumMoodsSuperHappyTest
     [Fact]
     public void SumMoodsOfTriangleSuperHappy()
     {
-        var expectedSum = 51D;
+        var expectedSum = 76.5D;
         List<Shape> listShape = new List<Shape> { new Triangle(5, 9) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
@@ -59,7 +59,7 @@ public class ShapeProcessSumMoodsSuperHappyTest
     [Fact]
     public void SumMoodsOfRectangleSuperHappy()
     {
-        var expectedSum = 32D;
+        var expectedSum = 48D;
         List<Shape> listShape = new List<Shape> { new Rectangle(3, 4) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
@@ -70,7 +70,7 @@ public class ShapeProcessSumMoodsSuperHappyTest
     [Fact]
     public void SumMoodsOfSeveralShapesSuperHappy()
     {
-        var expectedSum = 165.54862D;
+        var expectedSum = 263.32293D;
         var listShape = new List<Shape> { new Circle(3), new Square(2, 2), new Triangle(5, 9), new Rectangle(3, 4) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);

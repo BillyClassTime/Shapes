@@ -12,7 +12,7 @@
         }
         if (shapes.Count > 0)
         {
-            var sum = shapes.Sum(shapeS => shapeS.Count(ShapeMoodValue.Happy));
+            var sum = shapes.Sum(shapeS => shapeS.Count(ShapeMoodValue.SuperHappy));
 
             return sum;
         }

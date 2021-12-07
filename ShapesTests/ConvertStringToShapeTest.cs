@@ -1,18 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Tests
+namespace Shapes.Tests
 {
     [TestClass()]
-    public class ListShapesGetterTests
+    public class ConvertStringToShapeTest
     {
         //List<Shape> Shapes = null;
         [TestMethod()]
         public void GetListOfShapesTest()
         {
             //TODO
-            var serializerShapes = new JsonSerializerShapes();
-            var listShapesGetter = new ListShapesGetter(serializerShapes);
+            var serializerShapes = new JsonShapesSerializer();
+            var ConvertStringToShape = new ConvertStringToShape(serializerShapes);
             Assert.IsTrue(true, "TODO ListOfShapesTest");
         }
     }

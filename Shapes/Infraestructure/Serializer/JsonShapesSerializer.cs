@@ -5,7 +5,7 @@ public class JsonShapesSerializer : IShapeSerializer
     {
         if (shapesJson.Length == 0)
             return new ShapeNull();
-        if (!string.IsNullOrEmpty(shapesJson))
+        if (string.IsNullOrEmpty(shapesJson))
             return new ShapeNull();
         if (string.Concat(shapesJson, "U+002C").Contains("{}"))
             return new ShapeNull();

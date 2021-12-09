@@ -16,29 +16,39 @@
         {
             yield return shapeNode.ToString();
         }
-    } 
+    }
     private JsonArray ShapeArray(string shapesList)
     {
-        JsonNode shapeNode = JsonNode.Parse(shapesList);
+        JsonNode shapeNode;
+        JsonArray jsonArray;
+        try
+        {
+            shapeNode = JsonNode.Parse(shapesList);
 
-        JsonNode root = shapeNode.Root;
-        return root["Shapes"].AsArray();
+            JsonNode root = shapeNode.Root;
+
+            jsonArray = root["Shapes"].AsArray();
+        }
+        catch
+        {
+            jsonArray = new JsonArray();
+        }
+        return jsonArray;
     }
-   
+
 
     public List<Shape> GestListShapeFromListJsonString(string shapesString)
     {
-
-        foreach (var shapeString in NodeJsonStringFromShapeArray(shapesString))
-        {
-            var shape = GestShapeFromJsonString(shapeString);
-            Shapes.Add(shape);
-        }
-
+        if (!shapesString.Contains("{}"))
+            foreach (var shapeString in NodeJsonStringFromShapeArray(shapesString))
+            {
+                var shape = GetShapeFromJsonString(shapeString);
+                Shapes.Add(shape);
+            }
         return Shapes;
     }
 
-    public Shape GestShapeFromJsonString(string stringShape)
+    public Shape GetShapeFromJsonString(string stringShape)
     {
         return shapeSerializer.GetShapeFromString(stringShape);
     }

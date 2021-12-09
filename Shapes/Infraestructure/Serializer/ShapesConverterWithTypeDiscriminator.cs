@@ -8,7 +8,8 @@ public class ShapeConverterWithTypeDiscriminator : JsonConverter<Shape>
         Circle = 1,
         Rectangle = 2,
         Square = 3,
-        Triangle = 4
+        Triangle = 4,
+        ShapeNull = 5,
     }
 
     public override bool CanConvert(Type typeToConvert) =>
@@ -46,7 +47,7 @@ public class ShapeConverterWithTypeDiscriminator : JsonConverter<Shape>
             TypeDiscriminator.Rectangle => new Rectangle(),
             TypeDiscriminator.Triangle => new Triangle(),
             TypeDiscriminator.Square => new Square(),
-            _ => throw new JsonException()
+            _ => new ShapeNull()
         };
 
         while (reader.Read())
@@ -129,6 +130,10 @@ public class ShapeConverterWithTypeDiscriminator : JsonConverter<Shape>
             writer.WriteNumber("TypeDiscriminator", (int)TypeDiscriminator.Triangle);
             writer.WriteNumber("Width", triangle.Width);
             writer.WriteNumber("Height", triangle.Height);
+        }
+        else if (shape is ShapeNull shapeNull)
+        {
+            writer.WriteNumber("TypeDiscriminator", (int)TypeDiscriminator.ShapeNull);
         }
         writer.WriteString("Name", shape.Name);
         writer.WriteEndObject();

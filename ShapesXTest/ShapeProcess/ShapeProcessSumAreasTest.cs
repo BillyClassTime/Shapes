@@ -1,80 +1,79 @@
-﻿using Xunit;
+using Xunit;
 namespace ShapesXTest;
-public class ShapeProcessSumMoodsSuperHappyTest
+public class ShapeProcessSumAreasTest
 {
     [Fact]
-    public void ShapesToSumMoodsOfListEmpty()
+    public void ShapesToSumAreasOfNullList()
     {
         List<Shape>? listShapes = null;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
+        //shapeProcess.Logger = logger;
         shapeProcess.Operate(listShapes);
         Assert.Equal("Lista de Shapes en blanco", logger.LoggerMessage.Last());
     }
     [Fact]
-    public void ShapesToSumMoodsOfListToZero()
+    public void ShapesToSumAreasOfEmpyList()
     {
         var expectedSum = 0D;
         var listShapes = new List<Shape>();
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
-        shapeProcess.Logger = logger;
+        var shapeProcess = new ShapeProcessSumAreas(logger);
+        //shapeProcess.Logger = logger;
         var resultado = shapeProcess.Operate(listShapes);
         Assert.Equal(expectedSum, resultado);
     }
-    
     [Fact]
-    public void SumMoodsOfCirclesSuperHappy()
+    public void SumAresOfCircles()
     {
-        var expectedSum = 114.82293D;
+        double expectedSum = 28.27431D;
         List<Shape> listShape = new List<Shape> { new Circle(3) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornersOfSquareSuperHappy()
+    public void SumAreasOfSquare()
     {
-        var expectedSum = 24D;
-        List<Shape> listShape = new List<Shape> { new Square(2, 2) };
+        double expectedSum = 4D;
+        List<Shape> listShape = new List<Shape> { new Square(2,2) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumMoodsOfTriangleSuperHappy()
+    public void SumAreasOfTriangle()
     {
-        var expectedSum = 76.5D;
+        double expectedSum = 22.5D;
         List<Shape> listShape = new List<Shape> { new Triangle(5, 9) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumMoodsOfRectangleSuperHappy()
+    public void SumAreasOfRectangle()
     {
-        var expectedSum = 48D;
+        double expectedSum = 12D;
         List<Shape> listShape = new List<Shape> { new Rectangle(3, 4) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumMoodsOfSeveralShapesSuperHappy()
+    public void SumAreasOfSeveralsShapes()
     {
-        var expectedSum = 263.32293D;
-        var listShape = new List<Shape> { new Circle(3), new Square(2, 2), new Triangle(5, 9), new Rectangle(3, 4) };
+        double expectedSum = 66.77431D;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsSuperHappy(logger);
-        var resultado = shapeProcess.Operate(listShape);
+        var shapeProcess = new ShapeProcessSumAreas(logger);
+        var resultado = shapeProcess.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, resultado);
     }
 }

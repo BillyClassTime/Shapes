@@ -1,78 +1,73 @@
 ﻿using Xunit;
 namespace ShapesXTest;
-public class ShapeProcessSumCornersTest
+public class ShapeProcessSumMoodsNormalTest
 {
     [Fact]
-    public void ShapeToSumCornerOfEmptyList()
+    public void ShapesToSumMoodsOfListEmpty()
     {
         List<Shape>? listShapes = null;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         shapeProcess.Operate(listShapes);
         Assert.Equal("Lista de Shapes en blanco", logger.LoggerMessage.Last());
     }
     [Fact]
-    public void ShapesToSumCornesOfListToZero()
+    public void ShapesToSumMoodsOfListToZero()
     {
-        var expectedSum = 0;
+        var expectedSum = 0D;
         var listShapes = new List<Shape>();
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         var resultado = shapeProcess.Operate(listShapes);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornesOfCircles()
+    public void SumMoodsOfCirclesNormal()
     {
-        var expectedSum = 0;
+        var expectedSum = 28.27431D;
         List<Shape> listShape = new List<Shape> { new Circle(3) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
-        //shapeProcess.Logger= logger;
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornersOfSquare()
+    public void SumCornersOfSquareNormal()
     {
-        var expectedSum = 4;
+        var expectedSum = 8;
         List<Shape> listShape = new List<Shape> { new Square(2, 2) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
-        //shapeProcess.Logger= logger;
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornesOfTriangle()
+    public void SumMoodsOfTriangleNormal()
     {
-        var expectedSum = 3;
+        var expectedSum = 25.5D;
         List<Shape> listShape = new List<Shape> { new Triangle(5, 9) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
-        //shapeProcess.Logger= logger;
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornesOfRectangle()
+    public void SumMoodsOfRectangleNormal()
     {
-        var expectedSum = 4;
+        var expectedSum = 16;
         List<Shape> listShape = new List<Shape> { new Rectangle(3, 4) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
-        //shapeProcess.Logger= logger;
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumCornersOfSeveralsShapes()
+    public void SumMoodsOfSeveralShapesNormal()
     {
-        var expectedSum = 11;
-        var listShape = new List<Shape> { new Circle(3), new Square(2, 2), new Triangle(5, 9), new Rectangle(3, 4) };
+        var expectedSum = 77.77431D;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumCorners(logger);
-        var resultado = shapeProcess.Operate(listShape);
+        var shapeProcess = new ShapeProcessSumMoodsNormal(logger);
+        var resultado = shapeProcess.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, resultado);
     }
 }

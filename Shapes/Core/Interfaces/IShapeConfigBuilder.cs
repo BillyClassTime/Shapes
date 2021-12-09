@@ -1,4 +1,4 @@
 ﻿public interface IShapeConfigBuilder
 {
-    string ShapeListFile { get; set; }
+    public string ShapeListFileName();
 }

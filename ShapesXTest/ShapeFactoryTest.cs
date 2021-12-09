@@ -10,8 +10,7 @@ public class ShapeFactoryTest
         var logger = new FakeLogger();
         ShapeFactory shapeFactory  = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
-        var listShape = shapeList();
-        var result = ResultShapeSumAreasOperation.Operate(listShape);
+        var result = ResultShapeSumAreasOperation.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, result);
     }
 
@@ -22,9 +21,8 @@ public class ShapeFactoryTest
         var operation = ShapeOperations.SumCorners;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
-        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
-        var listShape = shapeList();
-        var result = ResultShapeSumAreasOperation.Operate(listShape);
+        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        
+        var result = ResultShapeSumAreasOperation.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, result);
     }
     [Fact]
@@ -35,8 +33,7 @@ public class ShapeFactoryTest
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
-        var listShape = shapeList();
-        var result = ResultShapeSumAreasOperation.Operate(listShape);
+        var result = ResultShapeSumAreasOperation.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, result);
     }
     [Fact]
@@ -46,9 +43,8 @@ public class ShapeFactoryTest
         var operation = ShapeOperations.SumMoodsHappy;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
-        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
-        var listShape = shapeList();
-        var result = ResultShapeSumAreasOperation.Operate(listShape);
+        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        
+        var result = ResultShapeSumAreasOperation.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, result);
     }
     [Fact]
@@ -58,25 +54,9 @@ public class ShapeFactoryTest
         var operation = ShapeOperations.SumMoodsSuperHappy;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
-        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
-        var listShape = shapeList();
-        var result = ResultShapeSumAreasOperation.Operate(listShape);
+        var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        
+        var result = ResultShapeSumAreasOperation.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, result);
     }
-    private List<Shape> shapeList()
-    {
-        var circle = new Circle(3);
-        var rectangle = new Rectangle(3, 4);
-        var square = new Square(2, 2);
-        var triangle = new Triangle(5, 9);
 
-        List<Shape> listOfShapes = new()
-        {
-            circle,
-            rectangle,
-            square,
-            triangle
-        };
-        return listOfShapes;
-    }
 }

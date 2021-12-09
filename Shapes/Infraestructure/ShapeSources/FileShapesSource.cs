@@ -1,10 +1,22 @@
 ﻿public class FileShapesSource : IShapeSource
 {
-    private readonly IShapeConfigBuilder ShapeConfig;
+    private readonly IShapeConfigBuilder ShapeConfigToRead;
 
     public FileShapesSource(IShapeConfigBuilder shapeConfigBuilder)
     {
-        ShapeConfig = shapeConfigBuilder;
+        ShapeConfigToRead = shapeConfigBuilder;
     }
-    public string GetShapesFromSource() => File.ReadAllText(ShapeConfig.ShapeListFile);
+    public string GetShapesFromSource()
+    {
+        var shapeString = string.Empty;
+        try
+        {
+            shapeString = File.ReadAllText(ShapeConfigToRead.ShapeListFileName());
+        }
+        catch
+        {
+            shapeString = "{}";
+        }
+        return shapeString;
+    }
 }

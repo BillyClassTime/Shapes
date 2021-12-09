@@ -1,16 +1,27 @@
 ﻿using Microsoft.Extensions.Configuration;
 public class ShapeConfigBuilder : IShapeConfigBuilder
 {
-    public string ShapeListFile { get; set; }
+    public string AppSettingName { get; set; } = "appsettings.json";
 
-    public ShapeConfigBuilder()
+    public string ShapeListFileName()
     {
-        var config = new ConfigurationBuilder()
-        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-        .AddJsonFile("appsettings.json", optional: false).Build();
-        var section = config.GetSection(nameof(ShapeConfig));
-        var shapeListConfig = section.Get<ShapeConfig>();
-        ShapeListFile = shapeListConfig.ShapeListFile;
-    }
+        var shapeListFile = string.Empty;
+        try
+        {
+            var config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile(AppSettingName, optional: false).Build();
+            var section = config.GetSection(nameof(ShapeConfig));
+            var shapeListConfig = section.Get<ShapeConfig>();
+            shapeListFile = shapeListConfig.ShapeListFile;
+        }
+        catch
+        {
 
+            shapeListFile = "invalidappsettings.json";
+        }
+        return shapeListFile;
+
+    }
 }
+

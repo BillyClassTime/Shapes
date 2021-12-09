@@ -1,80 +1,77 @@
-using Xunit;
+﻿using Xunit;
 namespace ShapesXTest;
-public class ShapeProcessSumAreasTest
+public class ShapeProcessSumCornersTest
 {
     [Fact]
-    public void ShapesToSumAreasOfNullList()
+    public void ShapeToSumCornerOfEmptyList()
     {
         List<Shape>? listShapes = null;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
-        //shapeProcess.Logger = logger;
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         shapeProcess.Operate(listShapes);
         Assert.Equal("Lista de Shapes en blanco", logger.LoggerMessage.Last());
     }
     [Fact]
-    public void ShapesToSumAreasOfEmpyList()
+    public void ShapesToSumCornesOfListToZero()
     {
-        var expectedSum = 0D;
+        var expectedSum = 0;
         var listShapes = new List<Shape>();
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
-        //shapeProcess.Logger = logger;
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         var resultado = shapeProcess.Operate(listShapes);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumAresOfCircles()
+    public void SumCornesOfCircles()
     {
-        double expectedSum = 28.27431D;
+        var expectedSum = 0;
         List<Shape> listShape = new List<Shape> { new Circle(3) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumAreasOfSquare()
+    public void SumCornersOfSquare()
     {
-        double expectedSum = 4D;
-        List<Shape> listShape = new List<Shape> { new Square(2,2) };
+        var expectedSum = 4;
+        List<Shape> listShape = new List<Shape> { new Square(2, 2) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumAreasOfTriangle()
+    public void SumCornesOfTriangle()
     {
-        double expectedSum = 22.5D;
+        var expectedSum = 3;
         List<Shape> listShape = new List<Shape> { new Triangle(5, 9) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumAreasOfRectangle()
+    public void SumCornesOfRectangle()
     {
-        double expectedSum = 12D;
+        var expectedSum = 4;
         List<Shape> listShape = new List<Shape> { new Rectangle(3, 4) };
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
+        var shapeProcess = new ShapeProcessSumCorners(logger);
         //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
         Assert.Equal(expectedSum, resultado);
     }
     [Fact]
-    public void SumAreasOfSeveralsShapes()
+    public void SumCornersOfSeveralsShapes()
     {
-        double expectedSum = 66.77431D;
-        var listShape = new List<Shape> { new Circle(3), new Square(2, 2), new Triangle(5, 9), new Rectangle(3, 4) };
+        var expectedSum = 11;
         var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumAreas(logger);
-        var resultado = shapeProcess.Operate(listShape);
+        var shapeProcess = new ShapeProcessSumCorners(logger);
+        var resultado = shapeProcess.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, resultado);
     }
 }

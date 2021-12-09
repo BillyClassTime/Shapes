@@ -70,10 +70,9 @@ public class ShapeProcessSumMoodsHappyTest
     public void SumMoodsOfSeveralShapesHappy()
     {
         var expectedSum = 165.54862D;
-        var listShape = new List<Shape> { new Circle(3), new Square(2, 2), new Triangle(5, 9), new Rectangle(3, 4) };
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        var resultado = shapeProcess.Operate(listShape);
+        var resultado = shapeProcess.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, resultado);
     }
 }

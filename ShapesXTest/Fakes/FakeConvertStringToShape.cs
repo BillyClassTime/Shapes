@@ -8,7 +8,7 @@
         return Shapes;
     }
 
-    public Shape GestShapeFromJsonString(string shapeStrings)
+    public Shape GetShapeFromJsonString(string shapeStrings)
     {
         return this.Shape;
     }

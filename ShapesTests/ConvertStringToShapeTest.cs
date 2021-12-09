@@ -10,7 +10,7 @@ namespace Shapes.Tests
         [TestMethod()]
         public void GetListOfShapesTest()
         {
-            //TODO
+            //Done in XUnit (See the other project in this solution)
             var serializerShapes = new JsonShapesSerializer();
             var ConvertStringToShape = new ConvertStringToShape(serializerShapes);
             Assert.IsTrue(true, "TODO ListOfShapesTest");

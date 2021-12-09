@@ -10,6 +10,10 @@ public class FileShapeSourceTest
         var shapeFileSource = new FileShapesSource(shapeConfig);
         var stringFile = shapeFileSource.GetShapesFromSource();
         var expectedContent = ShapeTools.ListShapeStringJson();
+        stringFile = stringFile.Replace("\r\n", string.Empty);
+        expectedContent = expectedContent.Replace("\r\n", string.Empty);
+        stringFile = stringFile.Replace("\n", string.Empty);
+        expectedContent = expectedContent.Replace("\n", string.Empty);
         Assert.Equal(expectedContent,stringFile);
     }
 

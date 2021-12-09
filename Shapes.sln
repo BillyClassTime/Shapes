@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shapes", "Shapes\Shapes.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapesTests", "ShapesTests\ShapesTests.csproj", "{EBA7CA55-D7ED-4423-BC16-29A75EB3E84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapesXTest", "ShapesXTest\ShapesXTest.csproj", "{AB35E153-B0A9-4E0B-9992-0C4773894AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapesXTest", "ShapesXTest\ShapesXTest.csproj", "{AB35E153-B0A9-4E0B-9992-0C4773894AA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{129E1D6E-4713-4CED-B8A8-B52A01A18C04}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

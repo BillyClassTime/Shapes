@@ -48,7 +48,7 @@ namespace Shapes.Tests
         [TestMethod]
         public void MoodTest()
         {
-            ShameWithMood squareOne = new()
+            ShapeWithMood squareOne = new()
             {
                 Shape = new Square(2, 2),
                 ShapeCount = (int)new Square(2, 2).Count(ShapeMoodValue.Happy)
@@ -56,12 +56,12 @@ namespace Shapes.Tests
             //ShameWithMood squareTwo = new() { 
             //    Shape = new Square(3, 3), 
             //    ShapeCount = (int)new Square(3,3).Count(ShapeMoodValue.SupperHappy) };
-            ShameWithMood triangleOne = new()
+            ShapeWithMood triangleOne = new()
             {
                 Shape = new Triangle(5, 9),
                 ShapeCount = (int)new Triangle(5, 9).Count(ShapeMoodValue.Happy)
             };
-            ShameWithMood rectangleOne = new()
+            ShapeWithMood rectangleOne = new()
             {
                 Shape = new Rectangle(3, 4),
                 ShapeCount = (int)new Rectangle(3, 4).Count(ShapeMoodValue.Happy)
@@ -69,7 +69,7 @@ namespace Shapes.Tests
             //ShameWithMood circle = new() { 
             //    Shape = new Circle(3), 
             //    ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Normal) };
-            ShameWithMood circleHappy = new()
+            ShapeWithMood circleHappy = new()
             {
                 Shape = new Circle(3),
                 ShapeCount = (int)new Circle(3).Count(ShapeMoodValue.Happy)
@@ -78,7 +78,7 @@ namespace Shapes.Tests
             //    Shape = new Circle(7), 
             //    ShapeCount = (int)new Circle(7).Count(ShapeMoodValue.SupperHappy) };
 
-            List<ShameWithMood> listOfShapes = new()
+            List<ShapeWithMood> listOfShapes = new()
             {
                 squareOne,
                 //squareTwo,

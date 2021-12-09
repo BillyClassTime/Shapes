@@ -8,8 +8,8 @@ var engine = new ShapesEngine(
                     new ConvertStringToShape(new JsonShapesSerializer()),
                     new ShapeFactory(logger)
     );
-engine.Start(ShapeOperations.SumAreas);
-WriteLine($"The results are: Operation:{ShapeOperations.SumAreas} - Results:{engine.ResultOperation}");
+engine.Start(ShapeEnumProcess.SumAreas);
+WriteLine($"The results are: Operation:{ShapeEnumProcess.SumAreas} - Results:{engine.ResultOperation}");
 
 engine = new ShapesEngine(
                     logger,
@@ -17,8 +17,8 @@ engine = new ShapesEngine(
                     new ConvertStringToShape(new JsonShapesSerializer()),
                     new ShapeFactory(logger)
     );
-engine.Start(ShapeOperations.SumCorners);
-WriteLine($"The results are: Operation:{ShapeOperations.SumCorners} - Results:{engine.ResultOperation}");
+engine.Start(ShapeEnumProcess.SumCorners);
+WriteLine($"The results are: Operation:{ShapeEnumProcess.SumCorners} - Results:{engine.ResultOperation}");
 
 engine = new ShapesEngine(
                     logger,
@@ -27,5 +27,5 @@ engine = new ShapesEngine(
                     new ShapeFactory(logger)
     );
 
-engine.Start(ShapeOperations.SumMoodsHappy);
-WriteLine($"The results are: Operation:{ShapeOperations.SumMoodsHappy} - Results:{engine.ResultOperation}");
+engine.Start(ShapeEnumProcess.SumMoodsHappy);
+WriteLine($"The results are: Operation:{ShapeEnumProcess.SumMoodsHappy} - Results:{engine.ResultOperation}");

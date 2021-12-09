@@ -7,11 +7,11 @@
         Logger = logger;
     }
 
-    public ShapeProcess CreateOperations(ShapeOperations operation)
+    public ShapeProcess CreateOperations(ShapeEnumProcess process)
     {
         try
         {
-            string typeName = $"ShapeProcess{operation}";
+            string typeName = $"ShapeProcess{process}";
             //if (!typeName.Contains("Moods"))
             return (ShapeProcess)Activator.CreateInstance(
                 Type.GetType(typeName),

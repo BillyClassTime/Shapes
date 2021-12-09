@@ -18,7 +18,7 @@
         this.shapeFactory = shapeFactory;
     }
 
-    public void Start(ShapeOperations operation)
+    public void Start(ShapeEnumProcess process)
     {
         logger.Looger("Inicio de operaciones con las formas geométricas");
         logger.Looger("Cargar las figuras a una lista");
@@ -26,10 +26,10 @@
         string shapeString = shapeSource.GetShapesFromSource();
         var shapesList = ConvertStringToShape.GestListShapeFromListJsonString(shapeString);
 
-        var ResultShapesOperations = shapeFactory.CreateOperations(operation);
+        var ResultShapesOperations = shapeFactory.CreateOperations(process);
         ResultOperation = ResultShapesOperations.Operate(shapesList);
 
-        logger.Looger($"El resultado de {operation} es {ResultOperation}");
+        logger.Looger($"El resultado de {process} es {ResultOperation}");
         logger.Looger("Operacion completada");
     }
 }

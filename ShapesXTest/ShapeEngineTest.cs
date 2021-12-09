@@ -27,7 +27,7 @@ public class ShapeEngineTest
         var expectedSum = 0D;
         shapeSource.ShapeString = string.Empty;
         //convertStringToShape.Shapes = null;
-        shapeEngine?.Start(ShapeOperations.SumAreas);
+        shapeEngine?.Start(ShapeEnumProcess.SumAreas);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
 
     }
@@ -37,7 +37,7 @@ public class ShapeEngineTest
         var expectedSum = 0D;
         shapeSource.ShapeString = string.Empty;
         convertStringToShape.Shapes = new List<Shape>();
-        shapeEngine?.Start(ShapeOperations.SumAreas);
+        shapeEngine?.Start(ShapeEnumProcess.SumAreas);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
     [Fact]
@@ -46,7 +46,7 @@ public class ShapeEngineTest
         var expectedSum = 66.77431D;
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumAreas);
+        shapeEngine?.Start(ShapeEnumProcess.SumAreas);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
     [Fact]
@@ -55,7 +55,7 @@ public class ShapeEngineTest
         var expectedSum = 11D;
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumCorners);
+        shapeEngine?.Start(ShapeEnumProcess.SumCorners);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
 
@@ -65,7 +65,7 @@ public class ShapeEngineTest
         var expectedSum = 165.54862D;
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumMoodsHappy);
+        shapeEngine?.Start(ShapeEnumProcess.SumMoodsHappy);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
 
@@ -75,7 +75,7 @@ public class ShapeEngineTest
         var expectedSum = 77.77431D;
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumMoodsNormal);
+        shapeEngine?.Start(ShapeEnumProcess.SumMoodsNormal);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
 
@@ -85,7 +85,7 @@ public class ShapeEngineTest
         var expectedSum = 263.32293D;
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumMoodsSuperHappy);
+        shapeEngine?.Start(ShapeEnumProcess.SumMoodsSuperHappy);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
     [Fact]
@@ -93,7 +93,7 @@ public class ShapeEngineTest
     {
         shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
         convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeOperations.SumCorners);
+        shapeEngine?.Start(ShapeEnumProcess.SumCorners);
 
         Assert.Contains(logger.LoggerMessage, m => m == "Inicio de operaciones con las formas geométricas");
         Assert.Contains(logger.LoggerMessage, m => m == "Cargar las figuras a una lista");

@@ -155,4 +155,44 @@ Quitamos en ShapeEngine las dependicas de Logger, ListShapeGetter y ShapeFactory
 
 Los incluimos en el constructor para poder pasar Cualquier Logger, ListShapeGetter y ShapeFactory, (Ya no dependemos de ellos al menos no de manera fija), Al tener esta inversión de la dependencia, podremos cambiar dependencias que puedan cambiar el comportamiento de forma dinámica, muy apropiado para las pruebas.
 
-TODO mas pruebas unitarias
+## Pruebas unitarias (TDD)
+
+Se han realizdo las pruebas unitarias, de infraestructura, core con todas las funcionalides probadas y con inyeccion de dependencias como apoyo definitivo a las prueba.
+
+Tambien destacar los Fakes para comprobar a menor nivel de relación.
+
+| Place           | Functionality   | Element                                 | UnitTest                                                     |
+| --------------- | --------------- | --------------------------------------- | ------------------------------------------------------------ |
+| Core            | Interfaces      | IConvertStringToShape.cs                | N/A                                                          |
+| Core            | Interfaces      | ILogger.cs                              | N/A                                                          |
+| Core            | Interfaces      | IShape.cs                               | N/A                                                          |
+| Core            | Interfaces      | IShapeConfig.cs                         | N/A                                                          |
+| Core            | Interfaces      | IShapeConfigBuilder.cs                  | N/A                                                          |
+| Core            | Interfaces      | IShapeSerializer.cs                     | N/A                                                          |
+| Core            | Interfaces      | IShapeSource.cs                         | N/A                                                          |
+| Core            | Model           | Circle.cs                               | Tested in  serialization/deserialization                     |
+| Core            | Model           | Rectangle.cs                            | Tested in  serialization/deserialization                     |
+| Core            | Model           | Shape.cs                                | N/A                                                          |
+| Core            | Model           | ShapeMoodValue.cs                       | N/A                                                          |
+| Core            | Model           | ShapeNull.cs                            | N/A                                                          |
+| Core            | Model           | ShapesCount.cs                          | N/A                                                          |
+| Core            | Model           | Square.cs                               | Tested in  serialization/deserialization                     |
+| Core            | Model           | Triangle.cs                             | Tested in  serialization/deserialization                     |
+| Core            | ShapeProcess    | ShapeEnumsProcess.cs                    | N/A                                                          |
+| Core            | ShapeProcess    | ShapeFactory.cs                         | ShapeFactoryTest.cs                                          |
+| Core            | ShapeProcess    | ShapeProcess.cs                         | N/A                                                          |
+| Core            | ShapeProcess    | ShapeProcessSumAreas.cs                 | ShapeProcessSumAreasTest.cs                                  |
+| Core            | ShapeProcess    | ShapeProcessSumCorners.cs               | ShapeProcessSumCornersTest.cs                                |
+| Core            | ShapeProcess    | ShapeProcessSumMoodsHappy.cs            | ShapeProcessSumMoodsHappyTest.cs                             |
+| Core            | ShapeProcess    | ShapeProcessSumMoodsNormal.cs           | ShapeProcessSumMoodsNormalTest.cs                            |
+| Core            | ShapeProcess    | ShapeProcessSumMoodsSuperHappy.cs       | ShapeProcessSumMoodsSuperHappyTest.cs                        |
+| Core            | ShapeProcess    | ShapeWithMood.cs                        | N/A                                                          |
+| Core            | ShapeProcess    | UnknownShapeProcess.cs                  | N/A                                                          |
+| Core            | ShapesEngine.cs | ShapesEngine.cs                         | ShapeEngineTest.cs                                           |
+| Infraestructure | Json            | ConvertStringToShape.cs                 | ConvertStringToShapeTest.cs     <br />FakeConvertStringToShape.cs |
+| Infraestructure | Logger          | ConsoleLogger.cs                        | FakeLogger.cs                                                |
+| Infraestructure | Serializer      | JsonShapesSerializer.cs                 | JsonSerializerShapesTest.cs     <br />FakeJsonShapesSerializer.cs |
+| Infraestructure | Serializer      | ShapesConverterWithTypeDiscriminator.cs | N/A                                                          |
+| Infraestructure | ShapeConfig     | ShapeConfig.cs                          | N/A                                                          |
+| Infraestructure | ShapeConfig     | ShapeConfigBuilder.cs                   | ShapeConfigBuilderTest.cs     <br />FakeShapeConfigBuilder.cs |
+| Infraestructure | ShapeSources    | FileShapesSource.cs                     | FileShapeSourceTest.cs     <br />FakeShapesSource.cs         |

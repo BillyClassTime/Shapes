@@ -6,7 +6,7 @@ public class ShapeFactoryTest
     public void FactorySumAreasOperation()
     {
         var expectedSum = 66.77431D;
-        var operation = ShapeOperations.SumAreas;
+        var operation = ShapeEnumProcess.SumAreas;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory  = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
@@ -18,7 +18,7 @@ public class ShapeFactoryTest
     public void FactorySumCornersOperation()
     {
         var expectedSum = 11D;
-        var operation = ShapeOperations.SumCorners;
+        var operation = ShapeEnumProcess.SumCorners;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        
@@ -29,7 +29,7 @@ public class ShapeFactoryTest
     public void FactorySumMoodsNormalOperation()
     {
         var expectedSum = 77.77431D;
-        var operation = ShapeOperations.SumMoodsNormal;
+        var operation = ShapeEnumProcess.SumMoodsNormal;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);
@@ -40,7 +40,7 @@ public class ShapeFactoryTest
     public void FactorySumMoodsHappyOperation()
     {
         var expectedSum = 165.54862D;
-        var operation = ShapeOperations.SumMoodsHappy;
+        var operation = ShapeEnumProcess.SumMoodsHappy;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        
@@ -51,7 +51,7 @@ public class ShapeFactoryTest
     public void FactorySumMoodsSuperHappyOperation()
     {
         var expectedSum = 263.32293D;
-        var operation = ShapeOperations.SumMoodsSuperHappy;
+        var operation = ShapeEnumProcess.SumMoodsSuperHappy;
         var logger = new FakeLogger();
         ShapeFactory shapeFactory = new ShapeFactory(logger);
         var ResultShapeSumAreasOperation = shapeFactory.CreateOperations(operation);        

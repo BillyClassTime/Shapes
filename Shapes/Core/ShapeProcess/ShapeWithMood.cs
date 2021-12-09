@@ -1,4 +1,4 @@
-﻿public class ShameWithMood
+﻿public class ShapeWithMood
 {
     public IShape Shape { get; set; }
 

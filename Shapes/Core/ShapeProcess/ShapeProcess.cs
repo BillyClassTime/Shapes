@@ -1,6 +1,6 @@
 ﻿public abstract class ShapeProcess
 {
-    public ILogger Logger { get; set; }
+    internal ILogger Logger { get; set; }
 
     internal ShapeProcess(ILogger logger)
     {

@@ -18,7 +18,6 @@ public class ShapeProcessSumMoodsHappyTest
         var listShapes = new List<Shape>();
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        shapeProcess.Logger = logger;
         var resultado = shapeProcess.Operate(listShapes);
         Assert.Equal(expectedSum, resultado);
     }

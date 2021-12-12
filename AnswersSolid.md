@@ -196,3 +196,11 @@ Tambien destacar los Fakes para comprobar a menor nivel de relación.
 | Infraestructure | ShapeConfig     | ShapeConfig.cs                          | N/A                                                          |
 | Infraestructure | ShapeConfig     | ShapeConfigBuilder.cs                   | ShapeConfigBuilderTest.cs     <br />FakeShapeConfigBuilder.cs |
 | Infraestructure | ShapeSources    | FileShapesSource.cs                     | FileShapeSourceTest.cs     <br />FakeShapesSource.cs         |
+
+### Diagrama de clases final
+
+![](img/14-SOLIDFinalResult.png)
+
+Legenda:
+
+![](img/15-Legend.png)

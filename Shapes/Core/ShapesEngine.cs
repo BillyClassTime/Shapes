@@ -2,19 +2,19 @@
 {
     private readonly ILogger logger;
     private readonly IShapeSource shapeSource;
-    private readonly IConvertStringToShape ConvertStringToShape;
+    private readonly IConvertStringToShape convertStringToShape;
     private readonly ShapeFactory shapeFactory;
 
     public double ResultOperation { get; set; }
 
     public ShapesEngine(ILogger logger,
                         IShapeSource shapeSource,
-                        IConvertStringToShape ConvertStringToShape,
+                        IConvertStringToShape convertStringToShape,
                         ShapeFactory shapeFactory)
     {
         this.logger = logger;
         this.shapeSource = shapeSource;
-        this.ConvertStringToShape = ConvertStringToShape;
+        this.convertStringToShape = convertStringToShape;
         this.shapeFactory = shapeFactory;
     }
 
@@ -24,7 +24,7 @@
         logger.Looger("Cargar las figuras a una lista");
 
         string shapeString = shapeSource.GetShapesFromSource();
-        var shapesList = ConvertStringToShape.GestListShapeFromListJsonString(shapeString);
+        var shapesList = convertStringToShape.GestListShapeFromListJsonString(shapeString);
 
         var ResultShapesOperations = shapeFactory.CreateOperations(process);
         ResultOperation = ResultShapesOperations.Operate(shapesList);

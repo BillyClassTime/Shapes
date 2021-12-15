@@ -204,3 +204,64 @@ Tambien destacar los Fakes para comprobar a menor nivel de relación.
 Legenda:
 
 ![](img/15-Legend.png)
+
+# Optimización de pruebas unitarias con THEORY
+
+Una vez que han salido cerca de 74 casos de pruebas y hemos dectectado duplicidad de código y podemos hacer datos de pruebas utilizaremos ```[Theory]``` para optimizar las pruebas, recortando o suprimiendo mas de 50 metodos y reemplazandolos con datos de prueba:
+
+Ejemplo. 
+
+```c#
+[Fact]
+public void ShapesToSumAreasOfEmpyList()
+{
+    var expectedSum = 0D;
+    var listShapes = new List<Shape>();
+    var logger = new FakeLogger();
+    var shapeProcess = new ShapeProcessSumAreas(logger);
+    //shapeProcess.Logger = logger;
+    var resultado = shapeProcess.Operate(listShapes);
+    Assert.Equal(expectedSum, resultado);
+}
+[Fact]
+public void SumAresOfCircles()
+{
+    double expectedSum = 28.27431D;
+    List<Shape> listShape = new List<Shape> { new Circle(3) };
+    var logger = new FakeLogger();
+    var shapeProcess = new ShapeProcessSumAreas(logger);
+    //shapeProcess.Logger= logger;
+    var resultado = shapeProcess.Operate(listShape);
+    Assert.Equal(expectedSum, resultado);
+}
+```
+
+Lo reemplazaremos por: 
+
+```c#
+[Theory,MemberData(nameof(ShapeTools.DataForSumShapes), MemberType = typeof(ShapeTools))]
+public void GeneralTestOfSumAreas(List<Shape>? listShape, object? expectedSum)
+{
+    var logger = new FakeLogger();
+    var shapeProcess = new ShapeProcessSumAreas(logger);
+    var resultado = shapeProcess.Operate(listShape);
+    Assert.Equal(expectedSum, resultado);
+}
+```
+
+Los datos de prueba se definen así:  En la clase **ShapeTools.cs**
+
+```c#
+public static IEnumerable<object[]> DataForSumShapes =>
+    new List<object[]> {
+    new object[] { ListShapeEmpty(), 0D },
+    new object[] { ListShapeCircle(), 28.27431D },
+    new object[] { ListShapeSquare(), 4D },
+    new object[] { ListShapeTriangle(), 22.5D },
+    new object[] { ListShapeRectangle(), 12D },
+    new object[] { ShapeList(), 66.77431D }
+};
+```
+
+La clase ShapeTools  la hemos refactorizado para que sea más dinámica, hemos añadido mas casos de pruebas al poder tener mas dinamismo con los datos de prueba, y hemos reducido el código de las metodos en las pruebas unitarias.
+

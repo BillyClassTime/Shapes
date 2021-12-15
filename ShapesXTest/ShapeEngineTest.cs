@@ -26,68 +26,22 @@ public class ShapeEngineTest
     {
         var expectedSum = 0D;
         shapeSource.ShapeString = string.Empty;
-        //convertStringToShape.Shapes = null;
         shapeEngine?.Start(ShapeEnumProcess.SumAreas);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
 
     }
-    [Fact]
-    public void StartSumAreasOfShapesListEmpty()
-    {
-        var expectedSum = 0D;
-        shapeSource.ShapeString = string.Empty;
-        convertStringToShape.Shapes = new List<Shape>();
-        shapeEngine?.Start(ShapeEnumProcess.SumAreas);
-        Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
-    }
-    [Fact]
-    public void StartSumAreasOfShapesList()
-    {
-        var expectedSum = 66.77431D;
-        shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
-        convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeEnumProcess.SumAreas);
-        Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
-    }
-    [Fact]
-    public void StartSumCornersOfShapesList()
-    {
-        var expectedSum = 11D;
-        shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
-        convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeEnumProcess.SumCorners);
-        Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
-    }
 
-    [Fact]
-    public void StartSumMoodsOfShapesListHappy()
+    [Theory, MemberData(nameof(ShapeTools.DataForShapeEngineWithListShape), MemberType = typeof(ShapeTools))]
+    [MemberData(nameof(ShapeTools.DataForShapeEngineAndFactoryShapeEmptyList), MemberType = typeof(ShapeTools))]
+    public void GeneralTestOfStartWithAnyProcess(List<Shape> listShape, string listStringJson, 
+                                                 ShapeEnumProcess process, double expectedSum)
     {
-        var expectedSum = 165.54862D;
-        shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
-        convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeEnumProcess.SumMoodsHappy);
+        shapeSource.ShapeString = listStringJson;
+        convertStringToShape.Shapes = listShape;
+        shapeEngine?.Start(process);
         Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
     }
-
-    [Fact]
-    public void StartSumMoodsOfShapesListNormal()
-    {
-        var expectedSum = 77.77431D;
-        shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
-        convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeEnumProcess.SumMoodsNormal);
-        Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
-    }
-
-    [Fact]
-    public void StartSumMoodsOfShapesListSuperHappy()
-    {
-        var expectedSum = 263.32293D;
-        shapeSource.ShapeString = ShapeTools.ListShapeStringJson();
-        convertStringToShape.Shapes = ShapeTools.ShapeList();
-        shapeEngine?.Start(ShapeEnumProcess.SumMoodsSuperHappy);
-        Assert.Equal(expectedSum, shapeEngine?.ResultOperation);
-    }
+    
     [Fact]
     public void LogsStartingLoadingAndCompleting()
     {

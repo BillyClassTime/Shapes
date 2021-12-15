@@ -11,67 +11,13 @@ public class ShapeProcessSumMoodsHappyTest
         shapeProcess.Operate(listShapes);
         Assert.Equal("Lista de Shapes en blanco", logger.LoggerMessage.Last());
     }
-    [Fact]
-    public void ShapesToSumMoodsOfListToZero()
+    
+    [Theory, MemberData(nameof(ShapeTools.DataForHappyShapes), MemberType = typeof(ShapeTools))]
+    public void GeneralTestOfSumHappyShapes(List<Shape>? listShape, object? expectedSum)
     {
-        var expectedSum = 0D;
-        var listShapes = new List<Shape>();
         var logger = new FakeLogger();
         var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        var resultado = shapeProcess.Operate(listShapes);
-        Assert.Equal(expectedSum, resultado);
-    }
-    [Fact]
-    public void SumMoodsOfCirclesHappy()
-    {
-        var expectedSum = 66.54862D;
-        List<Shape> listShape = new List<Shape> { new Circle(3) };
-        var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        //shapeProcess.Logger= logger;
         var resultado = shapeProcess.Operate(listShape);
-        Assert.Equal(expectedSum, resultado);
-    }
-    [Fact]
-    public void SumMoodsOfSquareHappy()
-    {
-        var expectedSum = 16D;
-        List<Shape> listShape = new List<Shape> { new Square(2, 2) };
-        var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        //shapeProcess.Logger= logger;
-        var resultado = shapeProcess.Operate(listShape);
-        Assert.Equal(expectedSum, resultado);
-    }
-    [Fact]
-    public void SumMoodsOfTriangleHappy()
-    {
-        var expectedSum = 51D;
-        List<Shape> listShape = new List<Shape> { new Triangle(5, 9) };
-        var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        //shapeProcess.Logger= logger;
-        var resultado = shapeProcess.Operate(listShape);
-        Assert.Equal(expectedSum, resultado);
-    }
-    [Fact]
-    public void SumMoodsOfRectangleHappy()
-    {
-        var expectedSum = 32D;
-        List<Shape> listShape = new List<Shape> { new Rectangle(3, 4) };
-        var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        //shapeProcess.Logger= logger;
-        var resultado = shapeProcess.Operate(listShape);
-        Assert.Equal(expectedSum, resultado);
-    }
-    [Fact]
-    public void SumMoodsOfSeveralShapesHappy()
-    {
-        var expectedSum = 165.54862D;
-        var logger = new FakeLogger();
-        var shapeProcess = new ShapeProcessSumMoodsHappy(logger);
-        var resultado = shapeProcess.Operate(ShapeTools.ShapeList());
         Assert.Equal(expectedSum, resultado);
     }
 }

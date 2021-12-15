@@ -2,59 +2,26 @@
 namespace ShapesXTest;
 public class ConvertStringToShapeTest
 {
-    [Fact]
-    public void GetListShapeFromListJsonString()
+    [Theory, MemberData(nameof(ShapeTools.DataForGetListShapeFromListJsonString), MemberType = typeof(ShapeTools))]
+    public void GetListShapeFromListJsonString(Shape shape, string listJsonString, List<Shape> shapeListExpected)
     {
         var serializer = new FakeJsonShapesSerializer();
-
-        serializer.ShapeObject = new Circle(3);
-
+        serializer.ShapeObject = shape;
         var convertStringToShape = new ConvertStringToShape(serializer);
-
-
-        var listOfCircles = ShapeTools.ListShapeOfTwoCirclesStringJson();
-        List<Shape> shapeList = convertStringToShape.GestListShapeFromListJsonString(listOfCircles);
-        var expectedList = ShapeTools.ShapeOfTwoCircles();
+        var listOfShapes = listJsonString;
+        List<Shape> shapeList = convertStringToShape.GestListShapeFromListJsonString(listOfShapes);
+        var expectedList = shapeListExpected;
         Assert.NotStrictEqual(shapeList, expectedList);
     }
 
-    [Fact]
-    public void GetListShapeFromListJsonStringEmpty()
+    [Theory, MemberData(nameof(ShapeTools.DataForGetShapeFromJsonString), MemberType = typeof(ShapeTools))]
+    public void GetCircleFromJsonString(Shape shape, string shapeToSerialized, Shape shapeExpected)
     {
         var serializer = new FakeJsonShapesSerializer();
-
-        serializer.ShapeObject = new ShapeNull();
-
+        serializer.ShapeObject = shape;
         var convertStringToShape = new ConvertStringToShape(serializer);
-
-
-        var listOfCircles = "{}";
-        List<Shape> shapeList = convertStringToShape.GestListShapeFromListJsonString(listOfCircles);
-        var expectedList = new List<Shape>();
-        Assert.NotStrictEqual(shapeList, expectedList);
+        var shapeConverted = convertStringToShape.GetShapeFromJsonString(shapeToSerialized);
+        ShapeTools.AssertShapeEqual(shapeExpected, shapeConverted);
     }
 
-    [Fact]
-    public void GetCircleFromJsonString()
-    {
-        var serializer = new FakeJsonShapesSerializer();
-        serializer.ShapeObject = new Circle(3);
-        var convertStringToShape = new ConvertStringToShape(serializer);
-        var circleToSerialized = ShapeTools.ShapeCircleStringJson();
-        var circle = convertStringToShape.GetShapeFromJsonString(circleToSerialized);
-        var expectedList = new Circle(3);
-        ShapeTools.AssertShapeEqual(expectedList, circle);
-    }
-
-    [Fact]
-    public void GetInvalidShapeFromJsonString()
-    {
-        var serializer = new FakeJsonShapesSerializer();
-        serializer.ShapeObject = new ShapeNull();
-        var convertStringToShape = new ConvertStringToShape(serializer);
-        var invalidShape = "{}";
-        var invalidSerializedShape = convertStringToShape.GetShapeFromJsonString(invalidShape);
-        var expectedList = new ShapeNull();
-        ShapeTools.AssertShapeEqual(expectedList, invalidSerializedShape);
-    }
 }
